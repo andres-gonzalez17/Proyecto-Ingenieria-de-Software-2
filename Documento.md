@@ -1,4 +1,12 @@
 # Propuesta 3: Sistema pedidos para un restaurante 
+## Alcance:
+Se va a implementar la toma de pedidos con extras opcionales,de modo que cada extra modifica el precio y la descripción del producto.Los productos se crearán a partir de un menú configurable,para los extras se aplicará el patrón Decorator que permite agregar capas a un producto sin la necesidad de crear una clase por cada combinación posible.
+El sistema funcionará por consola y con una interfaz sencilla.
+
+También se implementará el armado de combos paso a paso,en el cual se van a ir eligiendo los diferentes productos hasta completar el combo,para esto se va a usar el patrón Builder,que permite construir un objeto por partes y en orden. Además cuando un pedido cambie de estado (recibido,en preparación,listo o para entregar y pagado) la cocina,mesero y caja recibiran el aviso de forma automática,se planea lograr esto implementando el patrón Observer que consiste en que cuando un objeto cambia su estado,todos los interesados se enteran automáticamente.Se incluirán también el cierre de caja y un reporte con las ventas del día, que se alimentan de los pedidos pagados que la caja registra mediante el Observer, sin requerir un patrón adicional.
+
+No se implementarán las promociones por horario o por día. Estas funcionalidades añaden reglas adicionales, como los días y los horarios en que aplica cada oferta, y por su complejidad el grupo prefiere concentrarse en la correcta implementación de los patrones elegidos (Decorator, Builder y Observer), de modo que el sistema funcione de manera adecuada. Aun así, el diseño se plantea de forma abierta, para que esta funcionalidad pueda incorporarse más adelante si llega a ser necesaria sin tener que rehacer el proyecto.
+
 ## Requisitos funcionales:
 Requerimientos funcionales:
 
