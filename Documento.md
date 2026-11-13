@@ -26,3 +26,22 @@ Requerimientos funcionales:
 
 
 # Requisitos no funcionles:
+
+| ID | Descripcion | Criterio de evaluacion |
+|--------|-----------|-----------|
+| RNF-01 | Mantenibilidad y extensibilidad | Agregar una adición nueva (por ejemplo, "salsa extra") debe requerir solo crear una clase nueva, sin modificar las clases que ya existen. (Patrón Decorator) |
+| RNF-02 | Mantenibilidad y extensibilidad | Agregar un tipo de producto nuevo al menú no debe obligar a cambiar el código de la caja ni el del pedido. (Patrón Builder) |
+| RNF-03 | Mantenibilidad y extensibilidad | Agregar un nuevo observador de pedidos (por ejemplo, un registro de los cambios) no debe requerir cambios en la clase Pedido. (Patrón Observer) |
+| RNF-04 | Mantenibilidad y extensibilidad | El código debe estar organizado en paquetes, cada uno con una función clara: modelo, servicios, patrones, consola, gui y pruebas. |
+| RNF-05 | Portabilidad y arquitectura | La versión de consola y la interfaz gráfica deben usar la misma lógica del negocio, sin repetir reglas en ninguna de las dos. |
+| RNF-06 | Portabilidad y arquitectura | El sistema debe poder compilarse y ejecutarse en cualquier computador que tenga Java 17 o superior instalado, sin necesitar librerías externas, salvo la herramienta de pruebas unitarias. |
+| RNF-07 | Usabilidad | El menú de consola debe ser claro, con opciones numeradas y mensajes de error fáciles de entender. Si el usuario escribe algo inválido, el programa no debe cerrarse. |
+| RNF-08 | Usabilidad | La interfaz gráfica debe permitir crear un pedido completo (producto, adiciones y pago) en máximo 5 pasos o pantallas. |
+| RNF-09 | Rendimiento | Las operaciones principales (agregar adiciones, calcular el total, cambiar el estado del pedido y avisar a los observadores) deben responder en menos de 1 segundo. |
+| RNF-10 | Rendimiento | El sistema debe manejar al menos 50 pedidos al mismo tiempo en memoria sin volverse lento. |
+| RNF-11 | Confiabilidad | Un pedido no puede pasar a un estado inválido (por ejemplo, de "recibido" directamente a "entregado"). El sistema debe rechazar el cambio y mostrar un mensaje. |
+| RNF-12 | Confiabilidad | El sistema no debe cerrarse por datos inválidos como precios negativos, combos vacíos o cantidades en cero. Debe revisarlos y avisar al usuario. |
+| RNF-13 | Precisión | Los cálculos de dinero (adiciones, total y cierre de caja) deben ser exactos. Se debe usar un tipo de dato que no pierda decimales o manejar el dinero en números enteros, para evitar errores de redondeo. |
+| RNF-14 | Calidad y pruebas | Cada clase donde se aplique un patrón debe tener pruebas unitarias (mínimo un caso normal y uno de error). |
+| RNF-15 | Calidad y pruebas | Los diagramas UML deben coincidir con el código entregado. |
+| RNF-16 | Proceso | El proyecto se maneja en un repositorio de GitHub, con commits de todos los integrantes y un README con las instrucciones para compilar, ejecutar y la lista de funcionalidades. |
