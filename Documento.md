@@ -32,7 +32,7 @@ Requerimientos funcionales:
 | RNF-01 | Mantenibilidad y extensibilidad | Agregar una adición nueva (por ejemplo, "salsa extra") debe requerir solo crear una clase nueva, sin modificar las clases que ya existen. (Patrón Decorator) |
 | RNF-02 | Mantenibilidad y extensibilidad | Agregar un tipo de producto nuevo al menú no debe obligar a cambiar el código de la caja ni el del pedido. (Patrón Builder) |
 | RNF-03 | Mantenibilidad y extensibilidad | Agregar un nuevo observador de pedidos (por ejemplo, un registro de los cambios) no debe requerir cambios en la clase Pedido. (Patrón Observer) |
-| RNF-04 | Mantenibilidad y extensibilidad | El código debe estar organizado en paquetes, cada uno con una función clara: modelo, servicios, patrones, consola, gui y pruebas. |
+| RNF-04 | Mantenibilidad y extensibilidad | El código debe estar organizado en paquetes, cada uno con una función clara: modelo, servicios, patrones, consola y pruebas. |
 | RNF-05 | Portabilidad y arquitectura | La versión de consola y la interfaz gráfica deben usar la misma lógica del negocio, sin repetir reglas en ninguna de las dos. |
 | RNF-06 | Portabilidad y arquitectura | El sistema debe poder compilarse y ejecutarse en cualquier computador que tenga Java 17 o superior instalado, sin necesitar librerías externas, salvo la herramienta de pruebas unitarias. |
 | RNF-07 | Usabilidad | El menú de consola debe ser claro, con opciones numeradas y mensajes de error fáciles de entender. Si el usuario escribe algo inválido, el programa no debe cerrarse. |
