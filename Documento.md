@@ -44,3 +44,16 @@ Requerimientos funcionales:
 | RNF-13 | Calidad y pruebas | Cada clase donde se aplique un patrón debe tener pruebas unitarias (mínimo un caso normal y uno de error). |
 | RNF-14 | Calidad y pruebas | Los diagramas UML deben coincidir con el código entregado. |
 
+
+# Arquitectura general:
+La aplicación sigue una arquitectura por capas que separa la lógica del negocio de las interfaces de usuario. El núcleo del sistema está formado por los paquetes modelo, patrones y servicios, donde se concentran las reglas de negocio: la creación de pedidos con extras (Decorator), el armado de combos (Builder), la notificación de cambios de estado a cocina, mesero y caja (Observer), la validación de estados, el cierre de caja y el reporte de ventas. Este núcleo no contiene instrucciones de entrada o salida ni depende de ninguna tecnología de presentación.
+
+La interfaz de consola y la interfaz gráfica se implementan en los paquetes consola y la interfaz gráfica de usuario como capas independientes. Solo capturan la entrada del usuario, invocan los servicios del núcleo y muestran los resultados. De esta forma, ambas interfaces comparten la misma lógica sin repetir reglas (RNF-05), y cualquiera de ellas puede modificarse o reemplazarse sin afectar el negocio.
+
+| Paquete | Responsabilidad |
+|---|---|
+| `modelo` | Entidades y reglas básicas (`Pedido`, `Producto`, `EstadoPedido`) |
+| `patrones` | Decorator, Builder y Observer |
+| `servicios` | Casos de uso del negocio (`PedidoService`, `CajaService`, `ReporteService`) |
+| `consola` | Interfaz de consola |
+| `gui` | Interfaz gráfica |
