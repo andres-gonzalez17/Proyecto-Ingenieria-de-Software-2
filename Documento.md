@@ -7,8 +7,8 @@ También se implementará el armado de combos paso a paso,en el cual se van a ir
 
 No se implementarán las promociones por horario o por día. Estas funcionalidades añaden reglas adicionales, como los días y los horarios en que aplica cada oferta, y por su complejidad el grupo prefiere concentrarse en la correcta implementación de los patrones elegidos (Decorator, Builder y Observer), de modo que el sistema funcione de manera adecuada. Aun así, el diseño se plantea de forma abierta, para que esta funcionalidad pueda incorporarse más adelante si llega a ser necesaria sin tener que rehacer el proyecto.
 
+
 ## Requisitos funcionales:
-Requerimientos funcionales:
 
 | ID | Descripción | Criterio de evaluación |
 | :--- | :--- | :--- |
@@ -24,8 +24,7 @@ Requerimientos funcionales:
 | RF-10  | Al final de cada día el sistema deberá permitir a la sección caja, generar un reporte de ventas. | El sistema deberá generar un reporte de ventas en donde se identifique la cantidad de pedidos, como se distribuyen los pedidos, el valor de cada pedido, y el dinero total con el que cierra el día. |
 
 
-
-# Requisitos no funcionles:
+## Requisitos no funcionles:
 
 | ID | Descripcion | Criterio de evaluacion |
 |--------|-----------|-----------|
@@ -45,7 +44,17 @@ Requerimientos funcionales:
 | RNF-14 | Calidad y pruebas | Los diagramas UML deben coincidir con el código entregado. |
 
 
-# Arquitectura general:
+## 
+
+## Patrones de diseño elegidos:
+Para resolver la primera problemática que se encontró, se decidió emplear el patrón estructural decorator, ya que permite agregar extras a un pedido, modificar el precio y la descripción sin necesidad de crear clases extras para cada combinación, lo que elimina la repetición de código y el exceso de clases innecesarias. La mejor opción es usar este patrón ya que evita la duplicación de código y permite agregar nuevas funcionalidades sin dificultad.
+
+Para resolver la segunda problemática, se decidió usar el patrón creacional builder, ya que permite construir los combos paso a paso, seleccionando cada cosa de manera independiente, es decir, seleccionar un plato principal aparte del acompañamiento y de la bebida, al hacerlo de esta forma se evita tener un constructor demasiado grande con muchos métodos obligatorios. Esta es la mejor opción ya que permite establecer las características por separado y agregar nuevos pasos sin afectar la construcción del objeto.
+
+Por último, para resolver la tercera problemática, se decidió usar el patrón de comportamiento observer, ya que permite que las distintas áreas como lo son cocina, caja y meseros, reciban notificaciones automáticamente cuando cambie el estado del pedido, sin necesidad de que se tenga que conocer directamente cada una. La mejor opción es usar este patrón ya que reduce el acoplamiento y permite agregar nuevas personas a recibir la notificación, sin necesidad de modificar la clase principal.
+
+
+## Arquitectura general:
 La aplicación sigue una arquitectura por capas que separa la lógica del negocio de las interfaces de usuario. El núcleo del sistema está formado por los paquetes modelo, patrones y servicios, donde se concentran las reglas de negocio: la creación de pedidos con extras (Decorator), el armado de combos (Builder), la notificación de cambios de estado a cocina, mesero y caja (Observer), la validación de estados, el cierre de caja y el reporte de ventas. Este núcleo no contiene instrucciones de entrada o salida ni depende de ninguna tecnología de presentación.
 
 La interfaz de consola y la interfaz gráfica se implementan en los paquetes consola y la interfaz gráfica de usuario como capas independientes. Solo capturan la entrada del usuario, invocan los servicios del núcleo y muestran los resultados. De esta forma, ambas interfaces comparten la misma lógica sin repetir reglas (RNF-05), y cualquiera de ellas puede modificarse o reemplazarse sin afectar el negocio.
