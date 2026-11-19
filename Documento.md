@@ -44,7 +44,15 @@ No se implementarán las promociones por horario o por día. Estas funcionalidad
 | RNF-14 | Calidad y pruebas | Los diagramas UML deben coincidir con el código entregado. |
 
 
-## 
+## Problemas de diseño
+
+Algunas situaciones que se identificaron que generarían problemas son:
+La primera situación que identificamos es en el caso en el que toque aplicar extras a un pedido,cuando se agrega extras a un pedido tanto el precio como la descripción del mismo cambian y también estos extras se pueden combinar de muchas maneras.Esto obligatoria a crear una clase distinta por cada combinación posible y si se agrega la opción de un nuevo extra serian muchisimas mas clases.Otra opción sería llenar la clase del producto de condicionales que revisen qué extras tiene,pero habría que modificarla cada vez que aparezca uno nuevo. En ambos casos el código sería repetido y difícil de ampliar. 
+
+Otra situación que se analizó es en el momento de armar un combo.Un combo se arma en varias etapas: plato principal, acompañamiento, bebida y tamaño, y en cada una hay muchas opciones. Si no se aplica un buen patrón se tendría un constructor con todos esos datos a la vez, lo que obligaría a tener todo definido desde el principio,se haría un constructor muy grande,poco legible y haría fácil equivocarse en el orden de los datos.Además si se agrega un paso nuevo, habría que modificar el constructor y todos los lugares donde se usa. 
+
+Por último se identificó un problema en el caso de aplicar la funcionalidad de los avisos cuando cambia el estado de un pedido.Cuando esto ocurre  varias áreas como cocina, caja y meseros deben enterarse para actuar en consecuencia. Un mal diseño haría que la clase llamara directamente a cada una de estas áreas dentro de su propio código, generando un fuerte acoplamiento entre ellas. Si en el futuro se quisiera agregar un nuevo interesado, habría que modificar la clase Además, sería difícil probar el funcionamiento del pedido de forma aislada sin tener todas las demás áreas activas. 
+
 
 ## Patrones de diseño elegidos:
 Para resolver la primera problemática que se encontró, se decidió emplear el patrón estructural decorator, ya que permite agregar extras a un pedido, modificar el precio y la descripción sin necesidad de crear clases extras para cada combinación, lo que elimina la repetición de código y el exceso de clases innecesarias. La mejor opción es usar este patrón ya que evita la duplicación de código y permite agregar nuevas funcionalidades sin dificultad.
