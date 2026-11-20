@@ -69,8 +69,10 @@ La interfaz de consola y la interfaz gráfica se implementan en los paquetes con
 
 | Paquete | Responsabilidad |
 |---|---|
-| `modelo` | Entidades y reglas básicas (`Pedido`, `Producto`, `EstadoPedido`) |
-| `patrones` | Decorator, Builder y Observer |
+| `modelo` | Entidades y reglas básicas (`Pedido`, `Producto`, `EstadoPedido`, `ObservadorPedido`, `Menu`) |
+| `patrones.decorator` | Extras de los productos |
+| `patrones.builder` | Armado de combos |
+| `patrones.observer` | Avisos a cocina, caja y mesero |
 | `servicios` | Casos de uso del negocio (`PedidoService`, `CajaService`, `ReporteService`) |
 | `consola` | Interfaz de consola |
 | `gui` | Interfaz gráfica |
