@@ -3,8 +3,6 @@ package patrones.builder;
 import modelo.Combo;
 import modelo.Producto;
 
-// El Builder arma el combo por pasos. Va guardando cada pieza
-// y solo crea el combo cuando se llama a construir().
 public class ComboBuilder {
 
     private String nombre;
