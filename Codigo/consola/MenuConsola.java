@@ -50,7 +50,6 @@ public class MenuConsola {
     private void mostrarOpciones() {
         System.out.println("\n===== SISTEMA DE PEDIDOS =====");
         if (pedidoActual != null) {
-            // Mientras no se confirme, se muestra "sin confirmar" en vez del estado
             String estado = "sin confirmar";
             if (pedidoActual.isConfirmado()) {
                 estado = pedidoActual.getEstado().toString();
@@ -78,7 +77,6 @@ public class MenuConsola {
         System.out.println("Pedido #" + pedidoActual.getId() + " creado");
     }
 
-    // Opción 2: productos sin extras, se puede pedir más de uno
     private void agregarProducto() {
         if (!pedidoSinConfirmar()) {
             return;
@@ -86,7 +84,6 @@ public class MenuConsola {
         List<ProductoBase> productos = menu.getProductos();
         int numero = -1;
 
-        // Se repite hasta que el usuario escriba 0
         while (numero != 0) {
             mostrarProductos();
             numero = leerEntero("Número de producto (0 para terminar): ");
@@ -97,7 +94,6 @@ public class MenuConsola {
                 if (cantidad < 1) {
                     System.out.println("Cantidad no válida");
                 } else {
-                    // Se agrega el producto tantas veces como la cantidad pedida
                     for (int i = 0; i < cantidad; i++) {
                         pedidoServicio.agregarProducto(pedidoActual, producto);
                     }
@@ -109,7 +105,6 @@ public class MenuConsola {
         }
     }
 
-    // Opción 3: combo ya armado (lo crea el Director)
     private void agregarComboPredefinido() {
         if (!pedidoSinConfirmar()) {
             return;
@@ -122,7 +117,6 @@ public class MenuConsola {
 
         try {
             Combo combo = pedidoServicio.armarComboPredefinido(opcion, tamaño);
-            // El combo se trata como cualquier producto: puede llevar extras
             Producto producto = preguntarExtras(combo);
             pedidoServicio.agregarProducto(pedidoActual, producto);
             System.out.println("Agregado: " + producto.getDescripcion() + " - $" + producto.getPrecio());
@@ -131,7 +125,6 @@ public class MenuConsola {
         }
     }
 
-    // Opción 4: combo armado por el cliente paso a paso (Builder)
     private void armarCombo() {
         if (!pedidoSinConfirmar()) {
             return;
@@ -164,7 +157,6 @@ public class MenuConsola {
         }
     }
 
-    // Opción 5: extras para un producto que ya está en el pedido
     private void agregarExtrasAProducto() {
         if (!pedidoSinConfirmar()) {
             return;
@@ -202,7 +194,6 @@ public class MenuConsola {
         }
     }
 
-    // Opción 7: pasa al estado que sigue
     private void avanzarEstado() {
         if (!hayPedidoAbierto()) {
             return;
@@ -225,9 +216,8 @@ public class MenuConsola {
     }
 
     try {
-        // Mientras el estado no sea PAGADO, se espera y se avanza al siguiente
         while (pedidoActual.getEstado() != EstadoPedido.PAGADO) {
-            Thread.sleep(2000); // pausa de 2000 milisegundos (2 segundos)
+            Thread.sleep(2000); 
             pedidoServicio.avanzarEstado(pedidoActual);
             System.out.println("Estado: " + pedidoActual.getEstado());
         }
@@ -251,7 +241,6 @@ public class MenuConsola {
         }
     }
 
-    // Muestra los productos del menú y devuelve el que el usuario elija
     private ProductoBase elegirProducto() {
         mostrarProductos();
         int numero = leerEntero("Número de producto: ");
@@ -263,7 +252,6 @@ public class MenuConsola {
         return productos.get(numero - 1);
     }
 
-    // Muestra los tamaños y devuelve el elegido (null si no es válido)
     private String elegirTamaño() {
         String[] tamaños = {"Pequeño", "Mediano", "Grande"};
         for (int i = 0; i < tamaños.length; i++) {
@@ -277,7 +265,6 @@ public class MenuConsola {
         return tamaños[opcion - 1];
     }
 
-    // Pregunta si desea extras. Si dice que sí, los pide; si no, devuelve el mismo producto.
     private Producto preguntarExtras(Producto producto) {
         System.out.println("¿Desea agregar extras?");
         System.out.println("1. Sí");
@@ -289,7 +276,6 @@ public class MenuConsola {
         return producto;
     }
 
-    // Pide extras uno por uno y devuelve el producto envuelto en todos ellos (Decorator)
     private Producto elegirExtras(Producto producto) {
         List<String> extras = menu.getExtras();
         boolean seguir = true;
@@ -314,7 +300,6 @@ public class MenuConsola {
         return producto;
     }
 
-    // Revisa que haya un pedido con el que se pueda trabajar
     private boolean hayPedidoAbierto() {
         if (pedidoActual == null) {
             System.out.println("Primero cree un pedido (opción 1)");
@@ -327,7 +312,6 @@ public class MenuConsola {
         return true;
     }
 
-    // Igual que la anterior, pero además revisa que el pedido no esté confirmado
     private boolean pedidoSinConfirmar() {
         if (!hayPedidoAbierto()) {
             return false;
@@ -346,7 +330,6 @@ public class MenuConsola {
         }
     }
 
-    // Lee un número escrito por el usuario. Si escribe otra cosa, devuelve -1.
     private int leerEntero(String mensaje) {
         System.out.print(mensaje);
         try {
