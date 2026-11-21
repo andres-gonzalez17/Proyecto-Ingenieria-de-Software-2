@@ -16,7 +16,7 @@
 ### Combos (Patrón Builder)
 * **Combos armados paso a paso:** selección de plato, acompañamiento, bebida y tamaño.
 * **Validación al construir:** el combo no se crea si falta algún paso obligatorio.
-* **Combos preestablecidos:** opciones *Clásico* y *Ligero*, creados mediante un `ComboDirector`.
+* **Combos preestablecidos:** opciones Clásico y Vegetariano, creados mediante un `ComboDirector`.
 
 ### Estados y avisos (Patrón Observer)
 * **Estados del pedido:** `RECIBIDO`, `EN_PREPARACION`, `LISTO`, `ENTREGADO` y `PAGADO`.
@@ -55,37 +55,37 @@
 5. Crea las **26 clases/interfaces/enums** dentro de cada paquete correspondiente (clic derecho sobre el paquete → **New**):
 
    * **`modelo`**
-     * `Producto` *(Java Interface)*
-     * `ProductoBase` *(Java Class)*
-     * `EstadoPedido` *(Java Enum)*
-     * `ObservadorPedido` *(Java Interface)*
-     * `Combo` *(Java Class)*
-     * `Pedido` *(Java Class)*
-     * `Venta` *(Java Class)*
-     * `Menu` *(Java Class)*
+     * `Producto` (Java Interface)
+     * `ProductoBase`(Java Class)
+     * `EstadoPedido` (Java Enum)
+     * `ObservadorPedido` (Java Interface)
+     * `Combo` (Java Class)
+     * `Pedido` (Java Class)
+     * `Venta` (Java Class)
+     * `Menu` (Java Class)
    * **`patrones.decorator`**
-     * `ExtraDecorator` *(Java Class - abstracta)*
-     * `ExtraQueso` *(Java Class)*
-     * `ExtraCarne` *(Java Class)*
-     * `ExtraSalsa` *(Java Class)*
+     * `ExtraDecorator` (Java Class - abstracta)
+     * `ExtraQueso` (Java Class)
+     * `ExtraCarne` (Java Class)
+     * `ExtraSalsa` (Java Class)
    * **`patrones.builder`**
-     * `ComboBuilder` *(Java Class)*
-     * `ComboOriginal` *(Java Class)*
+     * `ComboBuilder` (Java Class)
+     * `ComboOriginal` (Java Class)
    * **`patrones.observer`**
-     * `Cocina` *(Java Class)*
-     * `Mesero` *(Java Class)*
-     * `Caja` *(Java Class)*
+     * `Cocina` (Java Class)
+     * `Mesero` (Java Class)
+     * `Caja` (Java Class)
    * **`servicios`**
-     * `MenuServicio` *(Java Class)*
-     * `PedidoServicio` *(Java Class)*
-     * `CajaServicio` *(Java Class)*
-     * `ReporteServicio` *(Java Class)*
+     * `MenuServicio` (Java Class)
+     * `PedidoServicio` (Java Class)
+     * `CajaServicio` (Java Class)
+     * `ReporteServicio` (Java Class)
    * **`consola`**
-     * `Main` *(Java Class)*
-     * `MenuConsola` *(Java Class)*
+     * `Main` (Java Class)
+     * `MenuConsola` (Java Class)
    * **`gui`**
-     * `MainGui` *(Java Class)*
-     * `VentanaPrincipal` *(Java Class)*
+     * `MainGui` (Java Class)
+     * `VentanaPrincipal` (Java Class)
 
 6. Para poblar las clases, los códigos se encuentran en el repositorio público de GitHub, dentro de la carpeta codigo, que contiene todos los archivos ordenados por paquetes.
 7. Cuando estén las 26 clases creadas, haz clic derecho sobre el proyecto y elige **Clean and Build** (`Shift + F11`). El proceso debe terminar con `BUILD SUCCESS`.
