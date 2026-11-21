@@ -1,9 +1,3 @@
-# Sistema de Gestión de Pedidos
-
-Aplicación desarrollada en Java para la gestión integral de pedidos de un restaurante, implementando patrones de diseño estructurales y de comportamiento, con soporte para interfaz de consola e interfaz gráfica (GUI).
-
----
-
 ## Funcionalidades implementadas
 
 ### Pedidos y productos
