@@ -87,13 +87,19 @@
      * `MainGui` *(Java Class)*
      * `VentanaPrincipal` *(Java Class)*
 
-   *(Nota: Mientras faltan clases es normal ver errores en rojo).*
-
-6. Cuando estén las 26 clases creadas, haz clic derecho sobre el proyecto y elige **Clean and Build** (`Shift + F11`). El proceso debe terminar con `BUILD SUCCESS`.
-7. **Para ejecutar:**
+6. Para poblar las clases, los códigos se encuentran en el repositorio público de GitHub, dentro de la carpeta codigo, que contiene todos los archivos ordenados por paquetes.
+7. Cuando estén las 26 clases creadas, haz clic derecho sobre el proyecto y elige **Clean and Build** (`Shift + F11`). El proceso debe terminar con `BUILD SUCCESS`.
+8. **Para ejecutar:**
    * **Modo consola:** Haz clic derecho sobre `Main.java` y elige **Run File** (`Shift + F6`).
    * **Interfaz gráfica:** Haz clic derecho sobre `MainGui.java` y elige **Run File** (`Shift + F6`).
 
+---
+## Aclaración para Visual Studio Code
+
+Los pasos son los mismos, con estas diferencias:
+
+1. Se instala el **Extension Pack for Java** y se abre la carpeta del proyecto con **File → Open Folder**.
+2. Para ejecutar, se abre `Main.java` o `MainGui.java` y se pulsa el botón **Run** que aparece sobre el método `main`.
 ---
 
 ## Guía rápida de uso
