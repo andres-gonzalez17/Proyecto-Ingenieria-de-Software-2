@@ -1,0 +1,25 @@
+package servicios;
+
+import modelo.Menu;
+import modelo.ProductoBase;
+
+public class MenuServicio {
+
+    public Menu cargarMenuPorDefecto() {
+        Menu menu = new Menu();
+
+        menu.agregarProducto(new ProductoBase("Café", "Bebida", 2000));
+        menu.agregarProducto(new ProductoBase("Jugo natural", "Bebida", 4000));
+        menu.agregarProducto(new ProductoBase("Limonada", "Bebida", 3000));
+        menu.agregarProducto(new ProductoBase("Gaseosa", "Bebida", 3500));
+        menu.agregarProducto(new ProductoBase("Hamburguesa", "Plato", 15000));
+        menu.agregarProducto(new ProductoBase("Ensalada", "Plato", 12000));
+        menu.agregarProducto(new ProductoBase("Papas fritas", "Plato", 5000));
+
+        menu.agregarExtra("queso");
+        menu.agregarExtra("carne");
+        menu.agregarExtra("salsa");
+
+        return menu;
+    }
+}
