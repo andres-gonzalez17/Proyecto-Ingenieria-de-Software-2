@@ -1,0 +1,40 @@
+```mermaid
+classDiagram
+    class Pedido {
+        -EstadoPedido estado
+        -List~ObservadorPedido~ observadores
+        +agregarObservador(ObservadorPedido o) void
+        +quitarObservador(ObservadorPedido o) void
+        +cambiarEstado(EstadoPedido nuevo) void
+        -notificar() void
+    }
+    class ObservadorPedido {
+        <<interface>>
+        +actualizar(Pedido pedido) void
+    }
+    class ObservadorCocina {
+        +actualizar(Pedido pedido) void
+    }
+    class ObservadorMesero {
+        +actualizar(Pedido pedido) void
+    }
+    class ObservadorCaja {
+        +actualizar(Pedido pedido) void
+    }
+    class PedidoService {
+        +cambiarEstado(Pedido p, EstadoPedido e) void
+    }
+
+    Pedido o--> "*" ObservadorPedido : notifica
+    ObservadorPedido <|.. ObservadorCocina
+    ObservadorPedido <|.. ObservadorMesero
+    ObservadorPedido <|.. ObservadorCaja
+    PedidoService ..> Pedido : registra observadores y cambia el estado
+
+    note for Pedido "Rol: Sujeto (Subject)"
+    note for ObservadorPedido "Rol: Observador (Observer)"
+    note for ObservadorCocina "Rol: Observador concreto"
+    note for ObservadorMesero "Rol: Observador concreto"
+    note for ObservadorCaja "Rol: Observador concreto"
+    note for PedidoService "Rol: Cliente"
+```
