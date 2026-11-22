@@ -1,0 +1,32 @@
+package servicios;
+
+import java.time.format.DateTimeFormatter;
+import modelo.Venta;
+import patrones.observer.Caja;
+
+public class ReporteServicio {
+
+    private Caja caja;
+
+    public ReporteServicio(Caja caja) {
+        this.caja = caja;
+    }
+
+    public String generarReporte() {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm");
+
+        String reporte = "=== REPORTE DE VENTAS ===\n";
+        double total = 0;
+
+        for (Venta v : caja.getVentas()) {
+            reporte += v.getFechaHora().format(formato)
+                    + " | Pedido #" + v.getIdPedido()
+                    + " | " + v.getDescripcion()
+                    + " | $" + v.getTotal() + "\n";
+            total += v.getTotal();
+        }
+
+        reporte += "TOTAL DEL DÍA: $" + total;
+        return reporte;
+    }
+}
