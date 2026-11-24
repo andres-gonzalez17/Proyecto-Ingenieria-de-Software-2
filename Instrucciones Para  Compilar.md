@@ -109,7 +109,7 @@ El orden recomendado para recorrer el sistema, tanto en consola como en interfaz
 1. **Crear pedido nuevo.**
 2. **Agregar productos** (indicando cantidad), seleccionar un **combo preestablecido** o armar un **combo paso a paso**.
 3. **Agregar extras** a un producto del pedido *(opcional)*.
-4. **Confirmar pedido.** *(A partir de este punto el pedido ya no se puede modificar y la cocina recibe el aviso).*
+4. **Confirmar pedido.** (A partir de este punto el pedido ya no se puede modificar y la cocina recibe el aviso).
 5. **Avanzar al siguiente estado** de forma manual, o usar el **proceso automático** para llevarlo hasta `PAGADO`.
 6. **Ver avisos** registrados en cocina, mesero y caja.
 7. **Consultar el reporte de ventas** y realizar el **cierre de caja**.
