@@ -13,7 +13,6 @@ public class ComboBuilderTest {
 
     private static final double DELTA = 0.001;
 
-    // Productos que se reutilizan en las pruebas
     private ProductoBase plato = new ProductoBase("Hamburguesa", "Plato", 15000);
     private ProductoBase acompanamiento = new ProductoBase("Papas fritas", "Plato", 5000);
     private ProductoBase bebida = new ProductoBase("Gaseosa", "Bebida", 3500);
@@ -45,7 +44,6 @@ public class ComboBuilderTest {
         assertEquals(23500.0, combo.getPrecio(), DELTA);
     }
 
-    // "expected" significa: la prueba pasa solo si el método lanza ese error
     @Test(expected = IllegalStateException.class)
     public void sinPlatoNoSeConstruye() {
         new ComboBuilder("Combo roto")
