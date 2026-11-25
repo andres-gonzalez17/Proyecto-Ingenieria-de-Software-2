@@ -50,7 +50,6 @@ private static final double PRECIO_CARNE = 3000;
         Producto hamburguesa = new ProductoBase("Hamburguesa", "Plato", 15000);
         Producto conSalsa = new ExtraSalsa(hamburguesa);
 
-        // El decorator envuelve al producto, no lo modifica
         assertEquals(15000.0, hamburguesa.getPrecio(), DELTA);
         assertEquals("Hamburguesa", hamburguesa.getDescripcion());
         assertEquals(15000 + PRECIO_SALSA, conSalsa.getPrecio(), DELTA);
